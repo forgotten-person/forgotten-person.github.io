@@ -13,11 +13,27 @@
 		<div class="alert alert-warning">
 			I am a person who wants to end my life, I will record my journey to death here.
 		</div>
+		<div class="alert alert-success">
+			My remaining time:&ensp;<button id="time" class="btn btn-outline-danger" disabled></button>
+		</div>
 		<div class="text-center w-25 mt-4 px-5 overflow-auto" style="max-height:500px">
-			<a href="more/08-05.html" class="btn btn btn-outline-info w-100 my-2">08/05</a>
-			<a href="more/08-04.html" class="btn btn btn-outline-info w-100 my-2">08/04</a>
+			<a href="more/08-05.html" class="btn btn-outline-info w-100 my-2">08/05</a>
+			<a href="more/08-04.html" class="btn btn-outline-info w-100 my-2">08/04</a>
 		</div>
 	</div>
 </div>
 </body>
+<script>
+	let calculate=()=>
+	{
+		let time=new Date("2024/09/10").getTime()-new Date().getTime();
+		time=Math.floor(time/1000/60);
+		let days=Math.floor(time/60/24);
+		let hours=Math.floor(time/60%24);
+		let minutes=Math.floor(time%60);
+		document.getElementById("time").innerText=`${days}d ${hours}h ${minutes}m`;
+	};
+	calculate();
+	setInterval(calculate,1000);
+</script>
 </html>
